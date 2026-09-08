@@ -1,0 +1,29 @@
+{
+  "name": "@congaengr/tsrudiments",
+  "version": "1.0.0",
+  "description": "TypeScript + Playwright port (scoped subset) of the sfdcessentials Java + RestAssured rudiments library, covering only the methods consumed by the Revenue Admin UI repo",
+  "main": "dist/src/index.js",
+  "types": "dist/src/index.d.ts",
+  "scripts": {
+    "test": "playwright test",
+    "test:headed": "playwright test --headed",
+    "report": "playwright show-report",
+    "build": "tsc",
+    "prepare": "npm run build"
+  },
+  "keywords": [
+    "playwright",
+    "typescript",
+    "api-testing",
+    "rudiments"
+  ],
+  "license": "UNLICENSED",
+  "devDependencies": {
+    "@playwright/test": "^1.47.0",
+    "@types/node": "^20.14.0",
+    "typescript": "^5.5.4"
+  },
+  "dependencies": {
+    "jsonpath-plus": "^10.4.0"
+  }
+}
