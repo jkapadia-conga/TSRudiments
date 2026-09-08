@@ -1,5 +1,5 @@
 {
-  "name": "@congaengr/tsrudiments",
+  "name": "conga-nextui-essentials",
   "version": "1.0.0",
   "description": "TypeScript + Playwright port (scoped subset) of the sfdcessentials Java + RestAssured rudiments library, covering only the methods consumed by the Revenue Admin UI repo",
   "main": "dist/src/index.js",

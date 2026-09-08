@@ -1,11 +1,17 @@
-import { AdminPojoBase } from './AdminPojoBase';
 import { IdNameContainer } from '../../generic/pojo/IdNameContainer';
 
 /**
  * TypeScript port of com.conga.rlp.rudiments.admin.pojo.PriceList, including all Java fields
  * and factory methods.
  */
-export class PriceList extends AdminPojoBase {
+export class PriceList {
+  Id?: string;
+  [key: string]: unknown;
+
+  getId(): string | undefined {
+    return this.Id;
+  }
+
   Name?: string;
   Description?: string;
   IsActive?: boolean;
@@ -24,8 +30,6 @@ export class PriceList extends AdminPojoBase {
   BasedOnPriceList?: IdNameContainer;
   Message?: string;
   Status?: string;
-  CatAuto_UniquePriceListId_c?: string;
-  AdminAuto_CustomStringField_c?: string;
   CreatedBy?: IdNameContainer;
   ModifiedBy?: IdNameContainer;
 
@@ -44,7 +48,6 @@ export class PriceList extends AdminPojoBase {
     priceList.ExternalId = testData['ExternalId'];
     priceList.Currency = testData['Currency'];
     priceList.CatAuto_PriceListId_c = testData['CatAuto_PriceListId_c'];
-    priceList.CatAuto_UniquePriceListId_c = testData['CatAuto_UniquePriceListId_c'];
     if (testData['AccountId'] !== undefined) {
       priceList.Account = new IdNameContainer();
       priceList.Account.Id = testData['AccountId'];
@@ -61,7 +64,6 @@ export class PriceList extends AdminPojoBase {
   static createPricelistPOJO(testData: Record<string, string>): PriceList[] {
     const priceList = new PriceList();
     PriceList.mapCommonFields(priceList, testData);
-    priceList.AdminAuto_CustomStringField_c = testData['AdminAuto_CustomStringField_c'];
     return [priceList];
   }
 
@@ -81,7 +83,6 @@ export class PriceList extends AdminPojoBase {
     priceList.ExpirationDate = testData['ExpirationDate'];
     priceList.ExternalId = testData['ExternalId'];
     priceList.CatAuto_PriceListId_c = testData['CatAuto_PriceListId_c'];
-    priceList.CatAuto_UniquePriceListId_c = testData['CatAuto_UniquePriceListId_c'];
     priceList.Currency = testData['Currency'];
     if (testData['AccountId'] !== undefined) {
       priceList.Account = new IdNameContainer();
@@ -114,7 +115,6 @@ export class PriceList extends AdminPojoBase {
   static createSinglePricelistPOJO(testData: Record<string, string>): PriceList {
     const priceList = new PriceList();
     PriceList.mapCommonFields(priceList, testData);
-    priceList.AdminAuto_CustomStringField_c = testData['AdminAuto_CustomStringField_c'];
     return priceList;
   }
 }

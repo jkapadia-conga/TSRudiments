@@ -1,12 +1,17 @@
-import { AdminPojoBase } from './AdminPojoBase';
-import { CurrencyValueContainer } from '../../generic/pojo/CurrencyValueContainer';
 import { PickListValue } from '../../generic/pojo/PickListValue';
 
 /**
  * TypeScript port of com.conga.rlp.rudiments.admin.pojo.Attribute, including all Java fields
  * and factory methods.
  */
-export class Attribute extends AdminPojoBase {
+export class Attribute {
+  Id?: string;
+  [key: string]: unknown;
+
+  getId(): string | undefined {
+    return this.Id;
+  }
+
   Name?: string;
   ExternalId?: string;
   Type?: string;
@@ -17,14 +22,6 @@ export class Attribute extends AdminPojoBase {
   Description?: string;
   IsRequired?: boolean;
   CreatedDate?: string;
-  AdminSrvQAAttributeIntV2_c?: number;
-  CatAuto_AttCustomFieldPickList_c?: string;
-  CatAuto_AttString_CstField_c?: string;
-  CatAuto_AttDouble_CstField_c?: number;
-  CatAuto_AttInt_CstField_c?: number;
-  CatAuto_AttCurrency_CstField_c?: CurrencyValueContainer;
-  CatAuto_AttDateTime_CstField_c?: string;
-  CatAuto_AttMultipicklist_CstField_c?: string[];
   Scale?: number;
   Precision?: number;
   HelpText?: string;
@@ -39,19 +36,6 @@ export class Attribute extends AdminPojoBase {
     pojo.DisplayName = testData['DisplayName'];
     pojo.Description = testData['Description'];
     pojo.IsRequired = testData['IsRequired'] === 'true';
-    if (testData['AdminSrvQAAttributeIntV2_c'] !== undefined) pojo.AdminSrvQAAttributeIntV2_c = Number(testData['AdminSrvQAAttributeIntV2_c']);
-    pojo.CatAuto_AttCustomFieldPickList_c = testData['CatAuto_AttCustomFieldPickList_c'];
-    pojo.CatAuto_AttString_CstField_c = testData['CatAuto_AttString_CstField_c'];
-    if (testData['CatAuto_AttDouble_CstField_c'] !== undefined) pojo.CatAuto_AttDouble_CstField_c = Number(testData['CatAuto_AttDouble_CstField_c']);
-    if (testData['CatAuto_AttInt_CstField_c'] !== undefined) pojo.CatAuto_AttInt_CstField_c = Number(testData['CatAuto_AttInt_CstField_c']);
-    pojo.CatAuto_AttDateTime_CstField_c = testData['CatAuto_AttDateTime_CstField_c'];
-    if (testData['CatAuto_AttMultipicklist_CstField_c'] !== undefined)
-      pojo.CatAuto_AttMultipicklist_CstField_c = testData['CatAuto_AttMultipicklist_CstField_c'].split(',');
-    if (testData['CatAuto_AttCurrency_CstField_c'] !== undefined) {
-      const currency = new CurrencyValueContainer();
-      currency.Value = Number(testData['CatAuto_AttCurrency_CstField_c']);
-      pojo.CatAuto_AttCurrency_CstField_c = currency;
-    }
     if (testData['Scale'] !== undefined) pojo.Scale = Number(testData['Scale']);
     if (testData['Precision'] !== undefined) pojo.Precision = Number(testData['Precision']);
     if (testData['Length'] !== undefined) pojo.Length = Number(testData['Length']);

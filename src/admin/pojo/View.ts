@@ -1,5 +1,3 @@
-import { AdminPojoBase } from './AdminPojoBase';
-
 /** Simplified port of the Java DisplaySettings column shape used inside View's column lists. */
 export interface ViewColumn {
   FieldName?: string;
@@ -11,7 +9,14 @@ export interface ViewColumn {
  * factory methods. Filter/Sort are kept as passthrough shapes (their pojo classes are out of
  * scope for this migration).
  */
-export class View extends AdminPojoBase {
+export class View {
+  Id?: string;
+  [key: string]: unknown;
+
+  getId(): string | undefined {
+    return this.Id;
+  }
+
   Name?: string;
   GroupBy?: string[];
   IsDefault?: boolean;

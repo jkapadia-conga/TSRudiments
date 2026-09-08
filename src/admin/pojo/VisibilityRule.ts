@@ -1,11 +1,17 @@
-import { AdminPojoBase } from './AdminPojoBase';
 import { IdNameContainer } from '../../generic/pojo/IdNameContainer';
 
 /**
  * TypeScript port of com.conga.rlp.rudiments.admin.pojo.VisibilityRule, including all Java
  * fields and factory methods.
  */
-export class VisibilityRule extends AdminPojoBase {
+export class VisibilityRule {
+  Id?: string;
+  [key: string]: unknown;
+
+  getId(): string | undefined {
+    return this.Id;
+  }
+
   Name?: string;
   Sequence?: number;
   Description?: string;

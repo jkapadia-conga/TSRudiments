@@ -1,10 +1,15 @@
-import { AdminPojoBase } from './AdminPojoBase';
-
 /**
- * TypeScript port of com.conga.rlp.rudiments.admin.pojo.ConstraintRule, including all Java
+ * TypeScript port of com.conga.rlp.rudiments.admin.pojo.ConstraintRule, including all
  * fields and factory methods.
  */
-export class ConstraintRule extends AdminPojoBase {
+export class ConstraintRule {
+  Id?: string;
+  [key: string]: unknown;
+
+  getId(): string | undefined {
+    return this.Id;
+  }
+
   Name?: string;
   ExternalId?: string;
   IsActive?: boolean;
@@ -14,7 +19,6 @@ export class ConstraintRule extends AdminPojoBase {
   EndDate?: string;
   IsBundleContext?: boolean;
   Sequence?: number;
-  AdminAuto_CustomStringField_c?: string;
   Conditions?: unknown[];
   Actions?: unknown[];
   Type?: string;
@@ -22,7 +26,6 @@ export class ConstraintRule extends AdminPojoBase {
   RuleCategory?: string;
   IsPointOfSale?: boolean;
   IsPostSale?: boolean;
-  CatAuto_UniqueConstraintRuleId_c?: string;
 
   /** Ports createConstraintRulePojo(Map testData) - creates a single-item ConstraintRule list. */
   static createConstraintRulePojo(testData: Record<string, string>): ConstraintRule[] {
@@ -37,11 +40,9 @@ export class ConstraintRule extends AdminPojoBase {
     if (testData['Sequence'] !== undefined) constraintRule.Sequence = Number(testData['Sequence']);
     constraintRule.ConditionAssociation = testData['ConditionAssociation'];
     constraintRule.IsBundleContext = testData['IsBundleContext'] === 'true';
-    constraintRule.AdminAuto_CustomStringField_c = testData['AdminAuto_CustomStringField_c'];
     constraintRule.RuleCategory = testData['RuleCategory'];
     constraintRule.IsPostSale = testData['IsPostSale'] === 'true';
     constraintRule.IsPointOfSale = testData['IsPointOfSale'] === 'true';
-    constraintRule.CatAuto_UniqueConstraintRuleId_c = testData['CatAuto_UniqueConstraintRuleId_c'];
     return [constraintRule];
   }
 
@@ -64,7 +65,6 @@ export class ConstraintRule extends AdminPojoBase {
       constraintRule.RuleCategory = testData['RuleCategory'];
       constraintRule.IsPostSale = testData['IsPostSale'] === 'true';
       constraintRule.IsPointOfSale = testData['IsPointOfSale'] === 'true';
-      constraintRule.CatAuto_UniqueConstraintRuleId_c = testData['CatAuto_UniqueConstraintRuleId_c'];
       result.push(constraintRule);
     }
     return result;
@@ -84,11 +84,9 @@ export class ConstraintRule extends AdminPojoBase {
       constraintRule.Sequence = row['Sequence'] !== undefined ? Number(row['Sequence']) : i;
       constraintRule.ConditionAssociation = row['ConditionAssociation'];
       constraintRule.IsBundleContext = row['IsBundleContext'] === 'true';
-      constraintRule.AdminAuto_CustomStringField_c = row['AdminAuto_CustomStringField_c'];
       constraintRule.RuleCategory = row['RuleCategory'];
       constraintRule.IsPostSale = row['IsPostSale'] === 'true';
       constraintRule.IsPointOfSale = row['IsPointOfSale'] === 'true';
-      constraintRule.CatAuto_UniqueConstraintRuleId_c = row['CatAuto_UniqueConstraintRuleId_c'];
       return constraintRule;
     });
   }
@@ -108,11 +106,9 @@ export class ConstraintRule extends AdminPojoBase {
       constraintRule.ConditionAssociation = row['ConditionAssociation'];
       constraintRule.IsBundleContext = row['IsBundleContext'] === 'true';
       constraintRule.UpdateView = row['UpdateView'];
-      constraintRule.AdminAuto_CustomStringField_c = row['AdminAuto_CustomStringField_c'];
       constraintRule.RuleCategory = row['RuleCategory'];
       constraintRule.IsPostSale = row['IsPostSale'] === 'true';
       constraintRule.IsPointOfSale = row['IsPointOfSale'] === 'true';
-      constraintRule.CatAuto_UniqueConstraintRuleId_c = row['CatAuto_UniqueConstraintRuleId_c'];
       return constraintRule;
     });
   }

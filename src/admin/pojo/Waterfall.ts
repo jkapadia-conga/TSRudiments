@@ -1,4 +1,3 @@
-import { AdminPojoBase } from './AdminPojoBase';
 import { IdNameContainer } from '../../generic/pojo/IdNameContainer';
 
 /**
@@ -6,7 +5,14 @@ import { IdNameContainer } from '../../generic/pojo/IdNameContainer';
  * and its factory method. PricePoints is kept as a passthrough array (the Java original
  * delegates to a separate PricePoints pojo which is out of scope for this migration).
  */
-export class Waterfall extends AdminPojoBase {
+export class Waterfall {
+  Id?: string;
+  [key: string]: unknown;
+
+  getId(): string | undefined {
+    return this.Id;
+  }
+
   Name?: string;
   Description?: string;
   IsActive?: boolean;

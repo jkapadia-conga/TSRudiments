@@ -1,12 +1,17 @@
-import { AdminPojoBase } from './AdminPojoBase';
 import { IdNameContainer } from '../../generic/pojo/IdNameContainer';
-import { CurrencyValueContainer } from '../../generic/pojo/CurrencyValueContainer';
 
 /**
  * TypeScript port of com.conga.rlp.rudiments.admin.pojo.OptionGroup, including all Java fields
  * and factory methods.
  */
-export class OptionGroup extends AdminPojoBase {
+export class OptionGroup {
+  Id?: string;
+  [key: string]: unknown;
+
+  getId(): string | undefined {
+    return this.Id;
+  }
+
   Name?: string;
   Description?: string;
   ExpandedByDefault?: boolean;
@@ -44,13 +49,6 @@ export class OptionGroup extends AdminPojoBase {
   SourceOptionGroup?: string;
   SourceOptionGroups?: string[];
   Members?: unknown[];
-  CatAuto_OGCustomFieldPickList_c?: string;
-  CatAuto_OGString_CstField_c?: string;
-  CatAuto_OGDouble_CstField_c?: number;
-  CatAuto_OGInt_CstField_c?: number;
-  CatAuto_OGCurrency_CstField_c?: CurrencyValueContainer;
-  CatAuto_OGDateTime_CstField_c?: string;
-  CatAuto_OGMultipicklist_CstField_c?: string[];
 
   private static mapCommonFields(pojo: OptionGroup, testData: Record<string, string>): void {
     if (testData['AncestorId'] !== undefined) {
@@ -85,18 +83,6 @@ export class OptionGroup extends AdminPojoBase {
     pojo.MaxTotalQuantityExpression = testData['MaxTotalQuantityExpression'];
     pojo.MinTotalQuantityExpression = testData['MinTotalQuantityExpression'];
     if (testData['Sequence'] !== undefined) pojo.Sequence = Number(testData['Sequence']);
-    pojo.CatAuto_OGCustomFieldPickList_c = testData['CatAuto_OGCustomFieldPickList_c'];
-    pojo.CatAuto_OGString_CstField_c = testData['CatAuto_OGString_CstField_c'];
-    if (testData['CatAuto_OGDouble_CstField_c'] !== undefined) pojo.CatAuto_OGDouble_CstField_c = Number(testData['CatAuto_OGDouble_CstField_c']);
-    if (testData['CatAuto_OGInt_CstField_c'] !== undefined) pojo.CatAuto_OGInt_CstField_c = Number(testData['CatAuto_OGInt_CstField_c']);
-    pojo.CatAuto_OGDateTime_CstField_c = testData['CatAuto_OGDateTime_CstField_c'];
-    if (testData['CatAuto_OGMultipicklist_CstField_c'] !== undefined)
-      pojo.CatAuto_OGMultipicklist_CstField_c = testData['CatAuto_OGMultipicklist_CstField_c'].split(',');
-    if (testData['CatAuto_OGCurrency_CstField_c'] !== undefined) {
-      const currency = new CurrencyValueContainer();
-      currency.Value = Number(testData['CatAuto_OGCurrency_CstField_c']);
-      pojo.CatAuto_OGCurrency_CstField_c = currency;
-    }
   }
 
   /** Ports createOptionGroupPojo(Map testData) - creates a single-item OptionGroup list. */

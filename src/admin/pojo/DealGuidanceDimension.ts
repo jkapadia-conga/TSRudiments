@@ -1,10 +1,15 @@
-import { AdminPojoBase } from './AdminPojoBase';
-
 /**
  * TypeScript port of com.conga.rlp.rudiments.admin.pojo.DealGuidanceDimension, including all
  * Java fields and factory methods.
  */
-export class DealGuidanceDimension extends AdminPojoBase {
+export class DealGuidanceDimension {
+  Id?: string;
+  [key: string]: unknown;
+
+  getId(): string | undefined {
+    return this.Id;
+  }
+
   Name?: string;
   Description?: string;
   DimensionType?: string;

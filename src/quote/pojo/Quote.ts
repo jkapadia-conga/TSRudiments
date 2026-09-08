@@ -79,14 +79,6 @@ export class Quote {
   SyncAssetChangesToQuote?: boolean;
   UseType?: string;
   ValidUntilDate?: string;
-  QuoteAuto_PickList_CstField_c?: string;
-  QuoteAuto_String_CstField_c?: string;
-  QuoteAuto_Double_CstField_c?: number;
-  QuoteAuto_Int_CstField_c?: number;
-  QuoteAuto_Boolean_CstField_c?: boolean;
-  QuoteAuto_Currency_CstField_c?: CurrencyValueContainer;
-  QuoteAuto_DateTime_CstField_c?: string;
-  QuoteAuto_Multipicklist_CstField_c?: string[];
   CreatedDate?: string;
   Items?: unknown[];
   ExternalId?: string;
@@ -229,11 +221,6 @@ export class Quote {
     quote.SyncAssetChangesToQuote = testData['SyncAssetChangesToQuote'] === 'true';
     quote.UseType = testData['UseType'];
     quote.ValidUntilDate = testData['ValidUntilDate'];
-    quote.QuoteAuto_Boolean_CstField_c = testData['QuoteAuto_Boolean_CstField_c'] === 'true';
-    quote.QuoteAuto_PickList_CstField_c = testData['QuoteAuto_PickList_CstField_c'];
-    quote.QuoteAuto_String_CstField_c = testData['QuoteAuto_String_CstField_c'];
-    if (testData['QuoteAuto_Double_CstField_c'] !== undefined) quote.QuoteAuto_Double_CstField_c = Number(testData['QuoteAuto_Double_CstField_c']);
-    if (testData['QuoteAuto_Int_CstField_c'] !== undefined) quote.QuoteAuto_Int_CstField_c = Number(testData['QuoteAuto_Int_CstField_c']);
     if (testData['RFPValue'] !== undefined) {
       quote.RFPValue = new CurrencyValueContainer();
       quote.RFPValue.Value = Number(testData['RFPValue']);
@@ -249,14 +236,6 @@ export class Quote {
       quote.Owner.Id = testData['ownerId'];
       quote.Owner.Name = testData['ownerName'];
     }
-    if (testData['QuoteAuto_Currency_CstField_c'] !== undefined) {
-      quote.QuoteAuto_Currency_CstField_c = new CurrencyValueContainer();
-      quote.QuoteAuto_Currency_CstField_c.Value = Number(testData['QuoteAuto_Currency_CstField_c']);
-      quote.QuoteAuto_Currency_CstField_c.CurrencyCode = 'USD';
-    }
-    quote.QuoteAuto_DateTime_CstField_c = testData['QuoteAuto_DateTime_CstField_c'];
-    if (testData['QuoteAuto_Multipicklist_CstField_c'] !== undefined)
-      quote.QuoteAuto_Multipicklist_CstField_c = testData['QuoteAuto_Multipicklist_CstField_c'].split(',');
     quote.ExternalId = testData['ExternalId'];
     if (testData['ContractNumbers'] !== undefined) quote.ContractNumbers = testData['ContractNumbers'].split(',');
   }
@@ -314,19 +293,6 @@ export class Quote {
       quoteMap.PrimaryContact.Name = mapTestData['primaryContactName'];
     }
     if (mapTestData['ExternalId'] !== undefined) quoteMap.ExternalId = mapTestData['ExternalId'];
-    if (mapTestData['QuoteAuto_Boolean_CstField_c'] !== undefined) quoteMap.QuoteAuto_Boolean_CstField_c = mapTestData['QuoteAuto_Boolean_CstField_c'] === 'true';
-    if (mapTestData['QuoteAuto_PickList_CstField_c'] !== undefined) quoteMap.QuoteAuto_PickList_CstField_c = mapTestData['QuoteAuto_PickList_CstField_c'];
-    if (mapTestData['QuoteAuto_String_CstField_c'] !== undefined) quoteMap.QuoteAuto_String_CstField_c = mapTestData['QuoteAuto_String_CstField_c'];
-    if (mapTestData['QuoteAuto_Double_CstField_c'] !== undefined) quoteMap.QuoteAuto_Double_CstField_c = Number(mapTestData['QuoteAuto_Double_CstField_c']);
-    if (mapTestData['QuoteAuto_Int_CstField_c'] !== undefined) quoteMap.QuoteAuto_Int_CstField_c = Number(mapTestData['QuoteAuto_Int_CstField_c']);
-    if (mapTestData['QuoteAuto_DateTime_CstField_c'] !== undefined) quoteMap.QuoteAuto_DateTime_CstField_c = mapTestData['QuoteAuto_DateTime_CstField_c'];
-    if (mapTestData['QuoteAuto_Multipicklist_CstField_c'] !== undefined)
-      quoteMap.QuoteAuto_Multipicklist_CstField_c = mapTestData['QuoteAuto_Multipicklist_CstField_c'].split(',');
-    if (mapTestData['QuoteAuto_Currency_CstField_c'] !== undefined) {
-      quoteMap.QuoteAuto_Currency_CstField_c = new CurrencyValueContainer();
-      quoteMap.QuoteAuto_Currency_CstField_c.Value = Number(mapTestData['QuoteAuto_Currency_CstField_c']);
-      quoteMap.QuoteAuto_Currency_CstField_c.CurrencyCode = 'USD';
-    }
     if (mapTestData['ContractNumbers'] !== undefined) quoteMap.ContractNumbers = mapTestData['ContractNumbers'].split(',');
     return quoteMap;
   }

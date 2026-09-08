@@ -123,4 +123,9 @@ const response = await rlpAdminHelper.createProduct({ Name: 'My Product', ... })
 npm install
 npx tsc --noEmit   # type-check
 npm test           # playwright test
+
+npm run build
+npm pack
+Install the jar/zip with below command on app service repo.
+npm install conga-nextui-essentials-1.0.0.tgz
 ```

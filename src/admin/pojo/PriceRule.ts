@@ -1,14 +1,27 @@
-import { AdminPojoBase } from './AdminPojoBase';
 import { IdNameContainer } from '../../generic/pojo/IdNameContainer';
 
 /** TypeScript port of com.conga.rlp.rudiments.admin.pojo.RuleSet (scoped down to Id/Name, used by PriceRule.getRuleset()). */
-export class RuleSet extends AdminPojoBase {}
+export class RuleSet {
+  Id?: string;
+  [key: string]: unknown;
+
+  getId(): string | undefined {
+    return this.Id;
+  }
+}
 
 /**
  * TypeScript port of com.conga.rlp.rudiments.admin.pojo.PriceRule, including all Java fields
  * and factory methods.
  */
-export class PriceRule extends AdminPojoBase {
+export class PriceRule {
+  Id?: string;
+  [key: string]: unknown;
+
+  getId(): string | undefined {
+    return this.Id;
+  }
+
   AdjustmentAppliesTo?: string;
   AdjustmentChargeType?: string;
   AllowableAction?: string;

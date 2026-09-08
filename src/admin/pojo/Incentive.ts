@@ -1,12 +1,17 @@
-import { AdminPojoBase } from './AdminPojoBase';
 import { IdNameContainer } from '../../generic/pojo/IdNameContainer';
-import { CurrencyValueContainer } from '../../generic/pojo/CurrencyValueContainer';
 
 /**
  * TypeScript port of com.conga.rlp.rudiments.admin.pojo.Incentive (IncentiveAdmin PricePrograms
  * family), including all Java fields and factory methods.
  */
-export class Incentive extends AdminPojoBase {
+export class Incentive {
+  Id?: string;
+  [key: string]: unknown;
+
+  getId(): string | undefined {
+    return this.Id;
+  }
+
   Name?: string;
   IsActive?: boolean;
   ApplicationMethod?: string;
@@ -41,14 +46,6 @@ export class Incentive extends AdminPojoBase {
   StopProcessingMoreIncentives?: boolean;
   SubUseType?: string;
   UseType?: string;
-  RebateAuto_PickList_CstField_c?: string;
-  RebateAuto_String_CstField_c?: string;
-  RebateAuto_Double_CstField_c?: number;
-  RebateAuto_Int_CstField_c?: number;
-  RebateAuto_Boolean_CstField_c?: boolean;
-  RebateAuto_Currency_CstField_c?: CurrencyValueContainer;
-  RebateAuto_DateTime_CstField_c?: string;
-  RebateAuto_Multipicklist_CstField_c?: string[];
   CreatedDate?: string;
   ModifiedDate?: string;
   Rules?: unknown[];
@@ -118,20 +115,6 @@ export class Incentive extends AdminPojoBase {
       if (incentiveMap['SubUseType'] !== undefined) incentive.SubUseType = incentiveMap['SubUseType'];
       if (incentiveMap['UseType'] !== undefined) incentive.UseType = incentiveMap['UseType'];
       incentive.StopProcessingMoreIncentives = incentiveMap['StopProcessingMoreIncentives'] === 'true';
-      if (incentiveMap['RebateAuto_Boolean_CstField_c'] !== undefined) incentive.RebateAuto_Boolean_CstField_c = incentiveMap['RebateAuto_Boolean_CstField_c'] === 'true';
-      if (incentiveMap['RebateAuto_PickList_CstField_c'] !== undefined) incentive.RebateAuto_PickList_CstField_c = incentiveMap['RebateAuto_PickList_CstField_c'];
-      if (incentiveMap['RebateAuto_String_CstField_c'] !== undefined) incentive.RebateAuto_String_CstField_c = incentiveMap['RebateAuto_String_CstField_c'];
-      if (incentiveMap['RebateAuto_Double_CstField_c'] !== undefined) incentive.RebateAuto_Double_CstField_c = Number(incentiveMap['RebateAuto_Double_CstField_c']);
-      if (incentiveMap['RebateAuto_Int_CstField_c'] !== undefined) incentive.RebateAuto_Int_CstField_c = Number(incentiveMap['RebateAuto_Int_CstField_c']);
-      if (incentiveMap['RebateAuto_DateTime_CstField_c'] !== undefined) incentive.RebateAuto_DateTime_CstField_c = incentiveMap['RebateAuto_DateTime_CstField_c'];
-      if (incentiveMap['RebateAuto_Multipicklist_CstField_c'] !== undefined)
-        incentive.RebateAuto_Multipicklist_CstField_c = incentiveMap['RebateAuto_Multipicklist_CstField_c'].split(',');
-      if (incentiveMap['RebateAuto_Currency_CstField_c'] !== undefined) {
-        const currency = new CurrencyValueContainer();
-        currency.Value = Number(incentiveMap['RebateAuto_Currency_CstField_c']);
-        currency.CurrencyCode = 'USD';
-        incentive.RebateAuto_Currency_CstField_c = currency;
-      }
       if (incentiveMap['EnableCurrency'] !== undefined) incentive.EnableCurrency = incentiveMap['EnableCurrency'] === 'true';
       if (incentiveMap['Currency'] !== undefined) incentive.Currency = incentiveMap['Currency'];
       if (incentiveMap['incentiveProgramId'] !== undefined) {
@@ -160,7 +143,6 @@ export class Incentive extends AdminPojoBase {
     incentive.ExternalId = incentiveMap['ExternalId'];
     incentive.IncentiveCode = incentiveMap['IncentiveCode'];
     if (incentiveMap['Sequence'] !== undefined) incentive.Sequence = Number(incentiveMap['Sequence']);
-    if (incentiveMap['RebateAuto_String_CstField_c'] !== undefined) incentive.RebateAuto_String_CstField_c = incentiveMap['RebateAuto_String_CstField_c'];
     if (incentiveMap['AdhocGroupScope'] !== undefined) incentive.AdhocGroupScope = incentiveMap['AdhocGroupScope'].split(',');
     return incentive;
   }

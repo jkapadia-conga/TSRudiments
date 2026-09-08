@@ -11,7 +11,6 @@ export { RLPConfigHelper } from './config/RLPConfigHelper';
 export { RLPDataManagerHelper } from './datamanager/RLPDataManagerHelper';
 export { RLPDataHelper } from './data/RLPDataHelper';
 
-export * from './admin/pojo/AdminPojoBase';
 export * from './admin/pojo/Product';
 export * from './admin/pojo/PriceList';
 export * from './admin/pojo/Category';
